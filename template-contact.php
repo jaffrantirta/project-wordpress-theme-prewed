@@ -37,9 +37,9 @@ get_header(); ?>
                                 <div>
                                     <h4 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--secondary-color);">Alamat</h4>
                                     <p style="color: var(--text-color); margin: 0; line-height: 1.7;">
-                                        Jl. Raya Ubud No. 123<br>
-                                        Ubud, Gianyar<br>
-                                        Bali, Indonesia 80571
+                                        <?php echo esc_html(get_theme_mod('contact_address_line1', 'Jl. Raya Ubud No. 123')); ?><br>
+                                        <?php echo esc_html(get_theme_mod('contact_address_line2', 'Ubud, Gianyar')); ?><br>
+                                        <?php echo esc_html(get_theme_mod('contact_address_line3', 'Bali, Indonesia 80571')); ?>
                                     </p>
                                 </div>
                             </div>
@@ -54,8 +54,12 @@ get_header(); ?>
                                 <div>
                                     <h4 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--secondary-color);">Telepon</h4>
                                     <p style="color: var(--text-color); margin: 0; line-height: 1.7;">
-                                        <a href="tel:+6281234567890" style="color: var(--text-color); text-decoration: none;">+62 812-3456-7890</a><br>
-                                        <a href="tel:+6281234567891" style="color: var(--text-color); text-decoration: none;">+62 812-3456-7891</a>
+                                        <?php
+                                        $phone1 = get_theme_mod('contact_phone_1', '+62 812-3456-7890');
+                                        $phone2 = get_theme_mod('contact_phone_2', '+62 812-3456-7891');
+                                        ?>
+                                        <a href="tel:<?php echo esc_attr(str_replace([' ', '-'], '', $phone1)); ?>" style="color: var(--text-color); text-decoration: none;"><?php echo esc_html($phone1); ?></a><br>
+                                        <a href="tel:<?php echo esc_attr(str_replace([' ', '-'], '', $phone2)); ?>" style="color: var(--text-color); text-decoration: none;"><?php echo esc_html($phone2); ?></a>
                                     </p>
                                 </div>
                             </div>

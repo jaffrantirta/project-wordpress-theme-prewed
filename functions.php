@@ -548,6 +548,355 @@ function jaffranprewed_customize_register($wp_customize) {
         'section'  => 'whatsapp_section',
         'type'     => 'checkbox',
     ));
+
+    // ========================================
+    // ABOUT US PAGE CUSTOMIZER
+    // ========================================
+
+    $wp_customize->add_section('about_page_section', array(
+        'title'    => __('About Us Page', 'jaffranprewed'),
+        'priority' => 40,
+    ));
+
+    // Statistics
+    $wp_customize->add_setting('about_stat_1_number', array(
+        'default'   => '10+',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('about_stat_1_number', array(
+        'label'    => __('Statistik 1 - Angka', 'jaffranprewed'),
+        'section'  => 'about_page_section',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('about_stat_1_label', array(
+        'default'   => 'Tahun Pengalaman',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('about_stat_1_label', array(
+        'label'    => __('Statistik 1 - Label', 'jaffranprewed'),
+        'section'  => 'about_page_section',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('about_stat_2_number', array(
+        'default'   => '500+',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('about_stat_2_number', array(
+        'label'    => __('Statistik 2 - Angka', 'jaffranprewed'),
+        'section'  => 'about_page_section',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('about_stat_2_label', array(
+        'default'   => 'Pasangan Bahagia',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('about_stat_2_label', array(
+        'label'    => __('Statistik 2 - Label', 'jaffranprewed'),
+        'section'  => 'about_page_section',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('about_stat_3_number', array(
+        'default'   => '50+',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('about_stat_3_number', array(
+        'label'    => __('Statistik 3 - Angka', 'jaffranprewed'),
+        'section'  => 'about_page_section',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('about_stat_3_label', array(
+        'default'   => 'Penghargaan',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('about_stat_3_label', array(
+        'label'    => __('Statistik 3 - Label', 'jaffranprewed'),
+        'section'  => 'about_page_section',
+        'type'     => 'text',
+    ));
+
+    // Values Section
+    for ($i = 1; $i <= 3; $i++) {
+        $wp_customize->add_setting("about_value_{$i}_icon", array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control("about_value_{$i}_icon", array(
+            'label'       => sprintf(__('Nilai %d - Icon Font Awesome', 'jaffranprewed'), $i),
+            'section'     => 'about_page_section',
+            'type'        => 'text',
+            'description' => __('Contoh: fa-heart, fa-award, fa-star', 'jaffranprewed'),
+        ));
+
+        $wp_customize->add_setting("about_value_{$i}_title", array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control("about_value_{$i}_title", array(
+            'label'    => sprintf(__('Nilai %d - Judul', 'jaffranprewed'), $i),
+            'section'  => 'about_page_section',
+            'type'     => 'text',
+        ));
+
+        $wp_customize->add_setting("about_value_{$i}_desc", array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control("about_value_{$i}_desc", array(
+            'label'    => sprintf(__('Nilai %d - Deskripsi', 'jaffranprewed'), $i),
+            'section'  => 'about_page_section',
+            'type'     => 'textarea',
+        ));
+    }
+
+    // Set default values
+    $wp_customize->get_setting('about_value_1_icon')->default = 'fa-heart';
+    $wp_customize->get_setting('about_value_1_title')->default = 'Passion';
+    $wp_customize->get_setting('about_value_1_desc')->default = 'Kami mencintai apa yang kami lakukan dan memberikan yang terbaik dalam setiap momen yang kami abadikan.';
+
+    $wp_customize->get_setting('about_value_2_icon')->default = 'fa-award';
+    $wp_customize->get_setting('about_value_2_title')->default = 'Profesionalisme';
+    $wp_customize->get_setting('about_value_2_desc')->default = 'Standar tinggi dalam setiap aspek pekerjaan kami, dari konsultasi hingga hasil akhir.';
+
+    $wp_customize->get_setting('about_value_3_icon')->default = 'fa-handshake';
+    $wp_customize->get_setting('about_value_3_title')->default = 'Kepercayaan';
+    $wp_customize->get_setting('about_value_3_desc')->default = 'Membangun hubungan jangka panjang dengan klien berdasarkan kepercayaan dan kejujuran.';
+
+    // Team Section
+    for ($i = 1; $i <= 4; $i++) {
+        $wp_customize->add_setting("about_team_{$i}_image", array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "about_team_{$i}_image", array(
+            'label'    => sprintf(__('Team %d - Foto', 'jaffranprewed'), $i),
+            'section'  => 'about_page_section',
+            'settings' => "about_team_{$i}_image",
+        )));
+
+        $wp_customize->add_setting("about_team_{$i}_name", array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control("about_team_{$i}_name", array(
+            'label'    => sprintf(__('Team %d - Nama', 'jaffranprewed'), $i),
+            'section'  => 'about_page_section',
+            'type'     => 'text',
+        ));
+
+        $wp_customize->add_setting("about_team_{$i}_position", array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control("about_team_{$i}_position", array(
+            'label'    => sprintf(__('Team %d - Posisi', 'jaffranprewed'), $i),
+            'section'  => 'about_page_section',
+            'type'     => 'text',
+        ));
+
+        $wp_customize->add_setting("about_team_{$i}_instagram", array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control("about_team_{$i}_instagram", array(
+            'label'    => sprintf(__('Team %d - Instagram URL', 'jaffranprewed'), $i),
+            'section'  => 'about_page_section',
+            'type'     => 'url',
+        ));
+
+        $wp_customize->add_setting("about_team_{$i}_facebook", array(
+            'default'   => '',
+            'transport' => 'refresh',
+        ));
+        $wp_customize->add_control("about_team_{$i}_facebook", array(
+            'label'    => sprintf(__('Team %d - Facebook URL', 'jaffranprewed'), $i),
+            'section'  => 'about_page_section',
+            'type'     => 'url',
+        ));
+    }
+
+    // Set default team data
+    $team_defaults = array(
+        1 => array('name' => 'Jaffran', 'position' => 'Lead Photographer'),
+        2 => array('name' => 'Sarah', 'position' => 'Wedding Photographer'),
+        3 => array('name' => 'Mike', 'position' => 'Videographer'),
+        4 => array('name' => 'Dewi', 'position' => 'Photo Editor'),
+    );
+
+    foreach ($team_defaults as $i => $team) {
+        $wp_customize->get_setting("about_team_{$i}_name")->default = $team['name'];
+        $wp_customize->get_setting("about_team_{$i}_position")->default = $team['position'];
+    }
+
+    // ========================================
+    // CONTACT PAGE CUSTOMIZER
+    // ========================================
+
+    $wp_customize->add_section('contact_page_section', array(
+        'title'    => __('Contact Page', 'jaffranprewed'),
+        'priority' => 41,
+    ));
+
+    // Address
+    $wp_customize->add_setting('contact_address_line1', array(
+        'default'   => 'Jl. Raya Ubud No. 123',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_address_line1', array(
+        'label'    => __('Alamat Baris 1', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('contact_address_line2', array(
+        'default'   => 'Ubud, Gianyar',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_address_line2', array(
+        'label'    => __('Alamat Baris 2', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('contact_address_line3', array(
+        'default'   => 'Bali, Indonesia 80571',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_address_line3', array(
+        'label'    => __('Alamat Baris 3', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'text',
+    ));
+
+    // Phone
+    $wp_customize->add_setting('contact_phone_1', array(
+        'default'   => '+62 812-3456-7890',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_phone_1', array(
+        'label'    => __('Telepon 1', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('contact_phone_2', array(
+        'default'   => '+62 812-3456-7891',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_phone_2', array(
+        'label'    => __('Telepon 2 (Optional)', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'text',
+    ));
+
+    // Email
+    $wp_customize->add_setting('contact_email_1', array(
+        'default'   => 'info@jaffranprewed.com',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_email_1', array(
+        'label'    => __('Email 1', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'email',
+    ));
+
+    $wp_customize->add_setting('contact_email_2', array(
+        'default'   => 'booking@jaffranprewed.com',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_email_2', array(
+        'label'    => __('Email 2 (Optional)', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'email',
+    ));
+
+    // Social Media
+    $wp_customize->add_setting('contact_facebook', array(
+        'default'   => 'https://facebook.com/jaffranprewed',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_facebook', array(
+        'label'    => __('Facebook URL', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'url',
+    ));
+
+    $wp_customize->add_setting('contact_instagram', array(
+        'default'   => 'https://instagram.com/jaffranprewed',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_instagram', array(
+        'label'    => __('Instagram URL', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'url',
+    ));
+
+    $wp_customize->add_setting('contact_twitter', array(
+        'default'   => 'https://twitter.com/jaffranprewed',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_twitter', array(
+        'label'    => __('Twitter URL', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'url',
+    ));
+
+    $wp_customize->add_setting('contact_youtube', array(
+        'default'   => 'https://youtube.com/jaffranprewed',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_youtube', array(
+        'label'    => __('YouTube URL', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'url',
+    ));
+
+    // Operating Hours
+    $wp_customize->add_setting('contact_hours_weekday', array(
+        'default'   => '09:00 - 18:00',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_hours_weekday', array(
+        'label'    => __('Jam Kerja Senin-Jumat', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('contact_hours_saturday', array(
+        'default'   => '09:00 - 15:00',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_hours_saturday', array(
+        'label'    => __('Jam Kerja Sabtu', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('contact_hours_sunday', array(
+        'default'   => 'By Appointment',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_hours_sunday', array(
+        'label'    => __('Jam Kerja Minggu', 'jaffranprewed'),
+        'section'  => 'contact_page_section',
+        'type'     => 'text',
+    ));
+
+    // Google Maps
+    $wp_customize->add_setting('contact_google_maps', array(
+        'default'   => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126214.40214184406!2d115.1885838!3d-8.4095178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd141d3e8100fa1%3A0x24910fb14b24e690!2sUbud%2C%20Gianyar%20Regency%2C%20Bali!5e0!3m2!1sen!2sid!4v1234567890',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_google_maps', array(
+        'label'       => __('Google Maps Embed URL', 'jaffranprewed'),
+        'section'     => 'contact_page_section',
+        'type'        => 'textarea',
+        'description' => __('Paste Google Maps embed URL dari iframe src=""', 'jaffranprewed'),
+    ));
 }
 add_action('customize_register', 'jaffranprewed_customize_register');
 

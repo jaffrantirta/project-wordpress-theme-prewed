@@ -29,16 +29,16 @@ get_header(); ?>
                     <!-- Stats -->
                     <div class="stats-row" style="margin-top: 40px; display: flex; gap: 30px; flex-wrap: wrap;">
                         <div class="stat-item">
-                            <h3 style="font-size: 3rem; color: var(--primary-color); margin-bottom: 5px; font-weight: 700;">10+</h3>
-                            <p style="color: var(--text-color); margin: 0;">Tahun Pengalaman</p>
+                            <h3 style="font-size: 3rem; color: var(--primary-color); margin-bottom: 5px; font-weight: 700;"><?php echo esc_html(get_theme_mod('about_stat_1_number', '10+')); ?></h3>
+                            <p style="color: var(--text-color); margin: 0;"><?php echo esc_html(get_theme_mod('about_stat_1_label', 'Tahun Pengalaman')); ?></p>
                         </div>
                         <div class="stat-item">
-                            <h3 style="font-size: 3rem; color: var(--primary-color); margin-bottom: 5px; font-weight: 700;">500+</h3>
-                            <p style="color: var(--text-color); margin: 0;">Pasangan Bahagia</p>
+                            <h3 style="font-size: 3rem; color: var(--primary-color); margin-bottom: 5px; font-weight: 700;"><?php echo esc_html(get_theme_mod('about_stat_2_number', '500+')); ?></h3>
+                            <p style="color: var(--text-color); margin: 0;"><?php echo esc_html(get_theme_mod('about_stat_2_label', 'Pasangan Bahagia')); ?></p>
                         </div>
                         <div class="stat-item">
-                            <h3 style="font-size: 3rem; color: var(--primary-color); margin-bottom: 5px; font-weight: 700;">50+</h3>
-                            <p style="color: var(--text-color); margin: 0;">Penghargaan</p>
+                            <h3 style="font-size: 3rem; color: var(--primary-color); margin-bottom: 5px; font-weight: 700;"><?php echo esc_html(get_theme_mod('about_stat_3_number', '50+')); ?></h3>
+                            <p style="color: var(--text-color); margin: 0;"><?php echo esc_html(get_theme_mod('about_stat_3_label', 'Penghargaan')); ?></p>
                         </div>
                     </div>
                 </div>
@@ -98,30 +98,30 @@ get_header(); ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="value-card" style="background: var(--white); padding: 40px 30px; border-radius: 10px; text-align: center; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <div class="value-icon" style="width: 80px; height: 80px; margin: 0 auto 20px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-heart" style="font-size: 2rem; color: var(--white);"></i>
+                            <i class="<?php echo esc_attr(get_theme_mod('about_value_1_icon', 'fas fa-heart')); ?>" style="font-size: 2rem; color: var(--white);"></i>
                         </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--secondary-color);">Passion</h3>
-                        <p style="color: var(--text-color); line-height: 1.7;">Kami mencintai apa yang kami lakukan dan memberikan yang terbaik dalam setiap momen yang kami abadikan.</p>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--secondary-color);"><?php echo esc_html(get_theme_mod('about_value_1_title', 'Passion')); ?></h3>
+                        <p style="color: var(--text-color); line-height: 1.7;"><?php echo esc_html(get_theme_mod('about_value_1_desc', 'Kami mencintai apa yang kami lakukan dan memberikan yang terbaik dalam setiap momen yang kami abadikan.')); ?></p>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
                     <div class="value-card" style="background: var(--white); padding: 40px 30px; border-radius: 10px; text-align: center; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <div class="value-icon" style="width: 80px; height: 80px; margin: 0 auto 20px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-award" style="font-size: 2rem; color: var(--white);"></i>
+                            <i class="<?php echo esc_attr(get_theme_mod('about_value_2_icon', 'fas fa-award')); ?>" style="font-size: 2rem; color: var(--white);"></i>
                         </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--secondary-color);">Profesionalisme</h3>
-                        <p style="color: var(--text-color); line-height: 1.7;">Standar tinggi dalam setiap aspek pekerjaan kami, dari konsultasi hingga hasil akhir.</p>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--secondary-color);"><?php echo esc_html(get_theme_mod('about_value_2_title', 'Profesionalisme')); ?></h3>
+                        <p style="color: var(--text-color); line-height: 1.7;"><?php echo esc_html(get_theme_mod('about_value_2_desc', 'Standar tinggi dalam setiap aspek pekerjaan kami, dari konsultasi hingga hasil akhir.')); ?></p>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
                     <div class="value-card" style="background: var(--white); padding: 40px 30px; border-radius: 10px; text-align: center; height: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <div class="value-icon" style="width: 80px; height: 80px; margin: 0 auto 20px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-handshake" style="font-size: 2rem; color: var(--white);"></i>
+                            <i class="<?php echo esc_attr(get_theme_mod('about_value_3_icon', 'fas fa-handshake')); ?>" style="font-size: 2rem; color: var(--white);"></i>
                         </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--secondary-color);">Kepercayaan</h3>
-                        <p style="color: var(--text-color); line-height: 1.7;">Membangun hubungan jangka panjang dengan klien berdasarkan kepercayaan dan kejujuran.</p>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--secondary-color);"><?php echo esc_html(get_theme_mod('about_value_3_title', 'Kepercayaan')); ?></h3>
+                        <p style="color: var(--text-color); line-height: 1.7;"><?php echo esc_html(get_theme_mod('about_value_3_desc', 'Membangun hubungan jangka panjang dengan klien berdasarkan kepercayaan dan kejujuran.')); ?></p>
                     </div>
                 </div>
             </div>
@@ -142,65 +142,96 @@ get_header(); ?>
             </div>
 
             <div class="row g-4">
+                <?php
+                // Team Member 1
+                $team_1_image = get_theme_mod('about_team_1_image');
+                $team_1_name = get_theme_mod('about_team_1_name', 'Jaffran');
+                $team_1_position = get_theme_mod('about_team_1_position', 'Lead Photographer');
+                $team_1_instagram = get_theme_mod('about_team_1_instagram', '#');
+                $team_1_facebook = get_theme_mod('about_team_1_facebook', '#');
+                ?>
                 <div class="col-lg-3 col-md-6">
                     <div class="team-card" style="text-align: center; position: relative; overflow: hidden; border-radius: 10px;">
                         <div class="team-image" style="position: relative; overflow: hidden; border-radius: 10px;">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/team-placeholder.jpg'); ?>" alt="Team Member" style="width: 100%; height: 350px; object-fit: cover; transition: transform 0.3s ease;">
+                            <img src="<?php echo $team_1_image ? esc_url($team_1_image) : esc_url(get_template_directory_uri() . '/assets/images/team-placeholder.jpg'); ?>" alt="<?php echo esc_attr($team_1_name); ?>" style="width: 100%; height: 350px; object-fit: cover; transition: transform 0.3s ease;">
                             <div class="team-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 30px 20px; color: white; transform: translateY(70%); transition: transform 0.3s ease;">
-                                <h4 style="color: white; margin-bottom: 5px;">Jaffran</h4>
-                                <p style="margin-bottom: 10px; opacity: 0.9;">Lead Photographer</p>
+                                <h4 style="color: white; margin-bottom: 5px;"><?php echo esc_html($team_1_name); ?></h4>
+                                <p style="margin-bottom: 10px; opacity: 0.9;"><?php echo esc_html($team_1_position); ?></p>
                                 <div class="social-links">
-                                    <a href="#" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a>
-                                    <a href="#" style="color: white; margin: 0 5px;"><i class="fab fa-facebook"></i></a>
+                                    <?php if ($team_1_instagram) : ?><a href="<?php echo esc_url($team_1_instagram); ?>" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a><?php endif; ?>
+                                    <?php if ($team_1_facebook) : ?><a href="<?php echo esc_url($team_1_facebook); ?>" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-facebook"></i></a><?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Add more team members as needed -->
+                <?php
+                // Team Member 2
+                $team_2_image = get_theme_mod('about_team_2_image');
+                $team_2_name = get_theme_mod('about_team_2_name', 'Sarah');
+                $team_2_position = get_theme_mod('about_team_2_position', 'Wedding Photographer');
+                $team_2_instagram = get_theme_mod('about_team_2_instagram', '#');
+                $team_2_facebook = get_theme_mod('about_team_2_facebook', '#');
+                ?>
                 <div class="col-lg-3 col-md-6">
                     <div class="team-card" style="text-align: center; position: relative; overflow: hidden; border-radius: 10px;">
                         <div class="team-image" style="position: relative; overflow: hidden; border-radius: 10px;">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/team-placeholder.jpg'); ?>" alt="Team Member" style="width: 100%; height: 350px; object-fit: cover;">
+                            <img src="<?php echo $team_2_image ? esc_url($team_2_image) : esc_url(get_template_directory_uri() . '/assets/images/team-placeholder.jpg'); ?>" alt="<?php echo esc_attr($team_2_name); ?>" style="width: 100%; height: 350px; object-fit: cover;">
                             <div class="team-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 30px 20px; color: white; transform: translateY(70%); transition: transform 0.3s ease;">
-                                <h4 style="color: white; margin-bottom: 5px;">Sarah</h4>
-                                <p style="margin-bottom: 10px; opacity: 0.9;">Wedding Photographer</p>
+                                <h4 style="color: white; margin-bottom: 5px;"><?php echo esc_html($team_2_name); ?></h4>
+                                <p style="margin-bottom: 10px; opacity: 0.9;"><?php echo esc_html($team_2_position); ?></p>
                                 <div class="social-links">
-                                    <a href="#" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a>
-                                    <a href="#" style="color: white; margin: 0 5px;"><i class="fab fa-facebook"></i></a>
+                                    <?php if ($team_2_instagram) : ?><a href="<?php echo esc_url($team_2_instagram); ?>" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a><?php endif; ?>
+                                    <?php if ($team_2_facebook) : ?><a href="<?php echo esc_url($team_2_facebook); ?>" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-facebook"></i></a><?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <?php
+                // Team Member 3
+                $team_3_image = get_theme_mod('about_team_3_image');
+                $team_3_name = get_theme_mod('about_team_3_name', 'Mike');
+                $team_3_position = get_theme_mod('about_team_3_position', 'Videographer');
+                $team_3_instagram = get_theme_mod('about_team_3_instagram', '#');
+                $team_3_facebook = get_theme_mod('about_team_3_facebook', '#');
+                ?>
                 <div class="col-lg-3 col-md-6">
                     <div class="team-card" style="text-align: center; position: relative; overflow: hidden; border-radius: 10px;">
                         <div class="team-image" style="position: relative; overflow: hidden; border-radius: 10px;">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/team-placeholder.jpg'); ?>" alt="Team Member" style="width: 100%; height: 350px; object-fit: cover;">
+                            <img src="<?php echo $team_3_image ? esc_url($team_3_image) : esc_url(get_template_directory_uri() . '/assets/images/team-placeholder.jpg'); ?>" alt="<?php echo esc_attr($team_3_name); ?>" style="width: 100%; height: 350px; object-fit: cover;">
                             <div class="team-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 30px 20px; color: white; transform: translateY(70%); transition: transform 0.3s ease;">
-                                <h4 style="color: white; margin-bottom: 5px;">Mike</h4>
-                                <p style="margin-bottom: 10px; opacity: 0.9;">Videographer</p>
+                                <h4 style="color: white; margin-bottom: 5px;"><?php echo esc_html($team_3_name); ?></h4>
+                                <p style="margin-bottom: 10px; opacity: 0.9;"><?php echo esc_html($team_3_position); ?></p>
                                 <div class="social-links">
-                                    <a href="#" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a>
-                                    <a href="#" style="color: white; margin: 0 5px;"><i class="fab fa-facebook"></i></a>
+                                    <?php if ($team_3_instagram) : ?><a href="<?php echo esc_url($team_3_instagram); ?>" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a><?php endif; ?>
+                                    <?php if ($team_3_facebook) : ?><a href="<?php echo esc_url($team_3_facebook); ?>" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-facebook"></i></a><?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <?php
+                // Team Member 4
+                $team_4_image = get_theme_mod('about_team_4_image');
+                $team_4_name = get_theme_mod('about_team_4_name', 'Dewi');
+                $team_4_position = get_theme_mod('about_team_4_position', 'Photo Editor');
+                $team_4_instagram = get_theme_mod('about_team_4_instagram', '#');
+                $team_4_facebook = get_theme_mod('about_team_4_facebook', '#');
+                ?>
                 <div class="col-lg-3 col-md-6">
                     <div class="team-card" style="text-align: center; position: relative; overflow: hidden; border-radius: 10px;">
                         <div class="team-image" style="position: relative; overflow: hidden; border-radius: 10px;">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/team-placeholder.jpg'); ?>" alt="Team Member" style="width: 100%; height: 350px; object-fit: cover;">
+                            <img src="<?php echo $team_4_image ? esc_url($team_4_image) : esc_url(get_template_directory_uri() . '/assets/images/team-placeholder.jpg'); ?>" alt="<?php echo esc_attr($team_4_name); ?>" style="width: 100%; height: 350px; object-fit: cover;">
                             <div class="team-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 30px 20px; color: white; transform: translateY(70%); transition: transform 0.3s ease;">
-                                <h4 style="color: white; margin-bottom: 5px;">Dewi</h4>
-                                <p style="margin-bottom: 10px; opacity: 0.9;">Photo Editor</p>
+                                <h4 style="color: white; margin-bottom: 5px;"><?php echo esc_html($team_4_name); ?></h4>
+                                <p style="margin-bottom: 10px; opacity: 0.9;"><?php echo esc_html($team_4_position); ?></p>
                                 <div class="social-links">
-                                    <a href="#" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a>
-                                    <a href="#" style="color: white; margin: 0 5px;"><i class="fab fa-facebook"></i></a>
+                                    <?php if ($team_4_instagram) : ?><a href="<?php echo esc_url($team_4_instagram); ?>" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a><?php endif; ?>
+                                    <?php if ($team_4_facebook) : ?><a href="<?php echo esc_url($team_4_facebook); ?>" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-facebook"></i></a><?php endif; ?>
                                 </div>
                             </div>
                         </div>
