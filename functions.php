@@ -562,3 +562,73 @@ function jaffranprewed_excerpt_more($more) {
     return '...';
 }
 add_filter('excerpt_more', 'jaffranprewed_excerpt_more');
+
+// Contact Form Handler
+function jaffranprewed_handle_contact_form() {
+    // Check nonce
+    if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form_nonce')) {
+        wp_send_json_error(['message' => 'Security check failed']);
+        wp_die();
+    }
+
+    // Sanitize form data
+    $name = sanitize_text_field($_POST['contact_name']);
+    $email = sanitize_email($_POST['contact_email']);
+    $phone = sanitize_text_field($_POST['contact_phone']);
+    $service = sanitize_text_field($_POST['contact_service']);
+    $date = sanitize_text_field($_POST['contact_date']);
+    $message = sanitize_textarea_field($_POST['contact_message']);
+
+    // Validate
+    if (empty($name) || empty($email) || empty($phone) || empty($message)) {
+        wp_send_json_error(['message' => 'Please fill all required fields']);
+        wp_die();
+    }
+
+    if (!is_email($email)) {
+        wp_send_json_error(['message' => 'Invalid email address']);
+        wp_die();
+    }
+
+    // Prepare email
+    $to = get_option('admin_email');
+    $subject = 'New Contact Form Submission - ' . get_bloginfo('name');
+    $body = "New contact form submission:\n\n";
+    $body .= "Name: $name\n";
+    $body .= "Email: $email\n";
+    $body .= "Phone: $phone\n";
+    $body .= "Service: $service\n";
+    $body .= "Event Date: $date\n";
+    $body .= "Message:\n$message\n";
+
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>',
+        'Reply-To: ' . $name . ' <' . $email . '>'
+    );
+
+    // Send email
+    $sent = wp_mail($to, $subject, $body, $headers);
+
+    if ($sent) {
+        // Send auto-reply to customer
+        $customer_subject = 'Terima kasih telah menghubungi kami - ' . get_bloginfo('name');
+        $customer_body = "Halo $name,\n\n";
+        $customer_body .= "Terima kasih telah menghubungi kami. Kami telah menerima pesan Anda dan akan segera menghubungi Anda kembali.\n\n";
+        $customer_body .= "Detail pesan Anda:\n";
+        $customer_body .= "Layanan: $service\n";
+        $customer_body .= "Tanggal Acara: $date\n\n";
+        $customer_body .= "Salam hangat,\n";
+        $customer_body .= get_bloginfo('name');
+
+        wp_mail($email, $customer_subject, $customer_body, $headers);
+
+        wp_send_json_success(['message' => 'Message sent successfully']);
+    } else {
+        wp_send_json_error(['message' => 'Failed to send message']);
+    }
+
+    wp_die();
+}
+add_action('admin_post_contact_form_submit', 'jaffranprewed_handle_contact_form');
+add_action('admin_post_nopriv_contact_form_submit', 'jaffranprewed_handle_contact_form');
