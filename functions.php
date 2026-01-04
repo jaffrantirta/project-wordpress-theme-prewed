@@ -349,7 +349,23 @@ function jaffranprewed_customize_register($wp_customize) {
         'type'     => 'text',
     ));
 
-    // Service 1
+    // Define default service content
+    $service_defaults = array(
+        1 => array(
+            'title' => 'Prewedding Photography',
+            'desc'  => 'Sesi foto prewedding di lokasi eksotis Bali dengan berbagai pilihan paket.',
+        ),
+        2 => array(
+            'title' => 'Wedding Photography',
+            'desc'  => 'Dokumentasi lengkap hari pernikahan Anda dari persiapan hingga resepsi.',
+        ),
+        3 => array(
+            'title' => 'Cinematic Video',
+            'desc'  => 'Video sinematik berkualitas tinggi untuk mengabadikan momen spesial Anda.',
+        ),
+    );
+
+    // Service 1-3
     for ($i = 1; $i <= 3; $i++) {
         $wp_customize->add_setting("service_{$i}_image", array(
             'default'   => '',
@@ -362,7 +378,7 @@ function jaffranprewed_customize_register($wp_customize) {
         )));
 
         $wp_customize->add_setting("service_{$i}_title", array(
-            'default'   => '',
+            'default'   => $service_defaults[$i]['title'],
             'transport' => 'refresh',
         ));
         $wp_customize->add_control("service_{$i}_title", array(
@@ -372,7 +388,7 @@ function jaffranprewed_customize_register($wp_customize) {
         ));
 
         $wp_customize->add_setting("service_{$i}_desc", array(
-            'default'   => '',
+            'default'   => $service_defaults[$i]['desc'],
             'transport' => 'refresh',
         ));
         $wp_customize->add_control("service_{$i}_desc", array(
@@ -381,14 +397,6 @@ function jaffranprewed_customize_register($wp_customize) {
             'type'     => 'textarea',
         ));
     }
-
-    // Default service content
-    $wp_customize->get_setting('service_1_title')->default = 'Prewedding Photography';
-    $wp_customize->get_setting('service_1_desc')->default = 'Sesi foto prewedding di lokasi eksotis Bali dengan berbagai pilihan paket.';
-    $wp_customize->get_setting('service_2_title')->default = 'Wedding Photography';
-    $wp_customize->get_setting('service_2_desc')->default = 'Dokumentasi lengkap hari pernikahan Anda dari persiapan hingga resepsi.';
-    $wp_customize->get_setting('service_3_title')->default = 'Cinematic Video';
-    $wp_customize->get_setting('service_3_desc')->default = 'Video sinematik berkualitas tinggi untuk mengabadikan momen spesial Anda.';
 
     // Testimonies Section
     $wp_customize->add_section('testimonies_section', array(
@@ -416,10 +424,29 @@ function jaffranprewed_customize_register($wp_customize) {
         'type'     => 'text',
     ));
 
+    // Define default testimony content
+    $testimony_defaults = array(
+        1 => array(
+            'text'   => 'Hasil foto prewedding kami sangat memuaskan! Tim yang profesional dan sangat membantu selama sesi foto.',
+            'author' => 'Andi & Sari',
+            'role'   => 'Prewedding Package - Juli 2023',
+        ),
+        2 => array(
+            'text'   => 'Dokumentasi pernikahan kami sempurna! Setiap momen terabadikan dengan indah. Sangat recommend!',
+            'author' => 'Budi & Rina',
+            'role'   => 'Wedding Package - Agustus 2023',
+        ),
+        3 => array(
+            'text'   => 'Pelayanan yang luar biasa! Fotografer sangat sabar dan kreatif. Hasil foto melebihi ekspektasi kami.',
+            'author' => 'Made & Dewi',
+            'role'   => 'Full Package - September 2023',
+        ),
+    );
+
     // Testimony items
     for ($i = 1; $i <= 3; $i++) {
         $wp_customize->add_setting("testimony_{$i}_text", array(
-            'default'   => '',
+            'default'   => $testimony_defaults[$i]['text'],
             'transport' => 'refresh',
         ));
         $wp_customize->add_control("testimony_{$i}_text", array(
@@ -429,7 +456,7 @@ function jaffranprewed_customize_register($wp_customize) {
         ));
 
         $wp_customize->add_setting("testimony_{$i}_author", array(
-            'default'   => '',
+            'default'   => $testimony_defaults[$i]['author'],
             'transport' => 'refresh',
         ));
         $wp_customize->add_control("testimony_{$i}_author", array(
@@ -439,7 +466,7 @@ function jaffranprewed_customize_register($wp_customize) {
         ));
 
         $wp_customize->add_setting("testimony_{$i}_role", array(
-            'default'   => '',
+            'default'   => $testimony_defaults[$i]['role'],
             'transport' => 'refresh',
         ));
         $wp_customize->add_control("testimony_{$i}_role", array(
@@ -448,19 +475,6 @@ function jaffranprewed_customize_register($wp_customize) {
             'type'     => 'text',
         ));
     }
-
-    // Default testimony content
-    $wp_customize->get_setting('testimony_1_text')->default = 'Hasil foto prewedding kami sangat memuaskan! Tim yang profesional dan sangat membantu selama sesi foto.';
-    $wp_customize->get_setting('testimony_1_author')->default = 'Andi & Sari';
-    $wp_customize->get_setting('testimony_1_role')->default = 'Prewedding Package - Juli 2023';
-
-    $wp_customize->get_setting('testimony_2_text')->default = 'Dokumentasi pernikahan kami sempurna! Setiap momen terabadikan dengan indah. Sangat recommend!';
-    $wp_customize->get_setting('testimony_2_author')->default = 'Budi & Rina';
-    $wp_customize->get_setting('testimony_2_role')->default = 'Wedding Package - Agustus 2023';
-
-    $wp_customize->get_setting('testimony_3_text')->default = 'Pelayanan yang luar biasa! Fotografer sangat sabar dan kreatif. Hasil foto melebihi ekspektasi kami.';
-    $wp_customize->get_setting('testimony_3_author')->default = 'Made & Dewi';
-    $wp_customize->get_setting('testimony_3_role')->default = 'Full Package - September 2023';
 
     // Blog Section
     $wp_customize->add_section('blog_section', array(

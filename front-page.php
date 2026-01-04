@@ -125,12 +125,27 @@ get_header(); ?>
         </div>
 
         <div class="row g-4">
-            <?php for ($i = 1; $i <= 3; $i++) :
-                $service_image = get_theme_mod("service_{$i}_image", get_template_directory_uri() . "/assets/images/service{$i}.jpg");
-                $service_title = get_theme_mod("service_{$i}_title");
-                $service_desc = get_theme_mod("service_{$i}_desc");
+            <?php
+            // Default service content
+            $service_defaults = array(
+                1 => array(
+                    'title' => 'Prewedding Photography',
+                    'desc'  => 'Sesi foto prewedding di lokasi eksotis Bali dengan berbagai pilihan paket.',
+                ),
+                2 => array(
+                    'title' => 'Wedding Photography',
+                    'desc'  => 'Dokumentasi lengkap hari pernikahan Anda dari persiapan hingga resepsi.',
+                ),
+                3 => array(
+                    'title' => 'Cinematic Video',
+                    'desc'  => 'Video sinematik berkualitas tinggi untuk mengabadikan momen spesial Anda.',
+                ),
+            );
 
-                if ($service_title) :
+            for ($i = 1; $i <= 3; $i++) :
+                $service_image = get_theme_mod("service_{$i}_image", get_template_directory_uri() . "/assets/images/service{$i}.jpg");
+                $service_title = get_theme_mod("service_{$i}_title", $service_defaults[$i]['title']);
+                $service_desc = get_theme_mod("service_{$i}_desc", $service_defaults[$i]['desc']);
             ?>
             <div class="col-lg-4 col-md-6">
                 <div class="service-card">
@@ -141,10 +156,7 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
-            <?php
-                endif;
-            endfor;
-            ?>
+            <?php endfor; ?>
         </div>
     </div>
 </section>
@@ -216,12 +228,30 @@ get_header(); ?>
         </div>
 
         <div class="row g-4">
-            <?php for ($i = 1; $i <= 3; $i++) :
-                $testimony_text = get_theme_mod("testimony_{$i}_text");
-                $testimony_author = get_theme_mod("testimony_{$i}_author");
-                $testimony_role = get_theme_mod("testimony_{$i}_role");
+            <?php
+            // Default testimony content
+            $testimony_defaults = array(
+                1 => array(
+                    'text'   => 'Hasil foto prewedding kami sangat memuaskan! Tim yang profesional dan sangat membantu selama sesi foto.',
+                    'author' => 'Andi & Sari',
+                    'role'   => 'Prewedding Package - Juli 2023',
+                ),
+                2 => array(
+                    'text'   => 'Dokumentasi pernikahan kami sempurna! Setiap momen terabadikan dengan indah. Sangat recommend!',
+                    'author' => 'Budi & Rina',
+                    'role'   => 'Wedding Package - Agustus 2023',
+                ),
+                3 => array(
+                    'text'   => 'Pelayanan yang luar biasa! Fotografer sangat sabar dan kreatif. Hasil foto melebihi ekspektasi kami.',
+                    'author' => 'Made & Dewi',
+                    'role'   => 'Full Package - September 2023',
+                ),
+            );
 
-                if ($testimony_text) :
+            for ($i = 1; $i <= 3; $i++) :
+                $testimony_text = get_theme_mod("testimony_{$i}_text", $testimony_defaults[$i]['text']);
+                $testimony_author = get_theme_mod("testimony_{$i}_author", $testimony_defaults[$i]['author']);
+                $testimony_role = get_theme_mod("testimony_{$i}_role", $testimony_defaults[$i]['role']);
             ?>
             <div class="col-lg-4 col-md-6">
                 <div class="testimony-card">
@@ -231,10 +261,7 @@ get_header(); ?>
                     <p class="testimony-role"><?php echo esc_html($testimony_role); ?></p>
                 </div>
             </div>
-            <?php
-                endif;
-            endfor;
-            ?>
+            <?php endfor; ?>
         </div>
     </div>
 </section>
